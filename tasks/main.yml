@@ -28,7 +28,7 @@
     rbenv global {{ rbenv_ruby_version }}
   when: rbenv_global_version.stdout != rbenv_ruby_version
 
-# NOTE: We must set user_install=no to install gems to ~/.rbenv/version/{{ rbenv_ruby_version }}/lib/ruby/gems/.
+# NOTE: We must set user_install=no to install gems to ~/.rbenv/versions/{{ rbenv_ruby_version }}/lib/ruby/gems/.
 # If not, gems are installed to /usr/local/lib/ruby/gems/.
 - gem: name={{ item }} state=latest user_install=no executable=~/.rbenv/shims/gem
   notify: rbenv rehash
