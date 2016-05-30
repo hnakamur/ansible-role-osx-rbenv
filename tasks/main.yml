@@ -32,4 +32,4 @@
 # If not, gems are installed to /usr/local/lib/ruby/gems/.
 - gem: name={{ item }} state=latest user_install=no executable=~/.rbenv/shims/gem
   notify: rbenv rehash
-  with_items: rbenv_global_gems
+  with_items: "{{ rbenv_global_gems }}"
